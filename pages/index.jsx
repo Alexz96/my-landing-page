@@ -7,16 +7,55 @@ import {
   useColorMode,
   useColorModeValue,
   VStack,
+  Link,
 } from "@chakra-ui/react";
 import Head from "next/head";
+import NextLink from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const { toggleColorMode } = useColorMode();
-  const myBackground = useColorModeValue("#172b54", "#ad5a6c");
-  const itemBackground = useColorModeValue("teal.300", "grey.200");
+  const myBackground = useColorModeValue("#f3f3f3", "#172b54");
+  const itemBackground = useColorModeValue("#7b4a64", "teal.600");
+  const [myLinks, setMyLinks] = useState([]);
 
-  // TODO: Criar uma função que receba um array com os links
-  // e a partir daí renderize as Box com o link num map
+  useEffect(() => {
+    fetch("http://localhost:3000/api/links")
+      .then((resp) => resp.json())
+      .then(setMyLinks);
+  }, []);
+
+  function renderizarLinks() {
+    if (myLinks) {
+      return myLinks.map((link, index) => {
+        return (
+          <Box
+            key={index}
+            height="8vh"
+            width="60vw"
+            rounded="2xl"
+            background={itemBackground}
+          >
+            <Center>
+              <NextLink href={link.url} passHref>
+                <Link
+                  color="#f3f3f3"
+                  _hover={{
+                    color: "#ad5a6c",
+                  }}
+                  isExternal
+                >
+                  <Heading size="xl">{link.text}</Heading>
+                </Link>
+              </NextLink>
+            </Center>
+          </Box>
+        );
+      });
+    }
+
+    return false;
+  }
 
   return (
     <div>
@@ -38,30 +77,7 @@ export default function Home() {
             <Button onClick={toggleColorMode}>Light/Dark</Button>
           </Box>
           <Flex p={12} rounded={6}>
-            <VStack spacing={5}>
-              <Box
-                height="7vh"
-                width="60vw"
-                rounded="2xl"
-                paddingTop={2}
-                background={itemBackground}
-              >
-                <Center>
-                  <Heading>Teste</Heading>
-                </Center>
-              </Box>
-              <Box
-                height="7vh"
-                width="60vw"
-                rounded="2xl"
-                paddingTop={2}
-                background={itemBackground}
-              >
-                <Center>
-                  <Heading>Teste #2</Heading>
-                </Center>
-              </Box>
-            </VStack>
+            <VStack spacing={5}>{renderizarLinks()}</VStack>
           </Flex>
         </Flex>
       </main>
