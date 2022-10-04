@@ -26,11 +26,15 @@ function get(req, res) {
     },
     {
       text: "Instagram",
-      url: "",
+      url: "https://instagram.com/alex_oliveira961?igshid=YmMyMTA2M2Y=",
     },
     {
       text: "MagazineVoce",
       url: "https://www.magazinevoce.com.br/magazineaions/",
+    },
+    {
+      text: "Fiverr",
+      url: "https://www.fiverr.com/oliveiraalex?up_rollout=true",
     },
   ]);
 }
