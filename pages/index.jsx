@@ -18,7 +18,7 @@ export default function Home() {
   const [myLinks, setMyLinks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost/api/links")
+    fetch("https://my-landing-page-seven.vercel.app/api/links")
       .then((resp) => resp.json())
       .then(setMyLinks);
   }, []);
