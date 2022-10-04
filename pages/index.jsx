@@ -1,10 +1,8 @@
 import {
   Box,
-  Button,
   Center,
   Flex,
   Heading,
-  useColorMode,
   useColorModeValue,
   VStack,
   Link,
@@ -12,9 +10,9 @@ import {
 import Head from "next/head";
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
+import Header from "../components/Header";
 
 export default function Home() {
-  const { toggleColorMode } = useColorMode();
   const myBackground = useColorModeValue("#f3f3f3", "#172b54");
   const itemBackground = useColorModeValue("#7b4a64", "teal.600");
   const [myLinks, setMyLinks] = useState([]);
@@ -66,6 +64,7 @@ export default function Home() {
       </Head>
 
       <main>
+        <Header />
         <Flex
           height="100vh"
           width="100vw"
@@ -73,9 +72,6 @@ export default function Home() {
           justifyContent="center"
           background={myBackground}
         >
-          <Box background="orange">
-            <Button onClick={toggleColorMode}>Light/Dark</Button>
-          </Box>
           <Flex p={12} rounded={6}>
             <VStack spacing={5}>{renderizarLinks()}</VStack>
           </Flex>
