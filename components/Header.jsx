@@ -19,12 +19,13 @@ export default function Header() {
       height="75px"
       background="#161a1d"
       justify="end"
-      spacing={5}
+      paddingEnd={50}
+      spacing={50}
     >
-      <Heading color="white" size="md">
+      <Heading color="white" size="md" noOfLines={1}>
         {title}
       </Heading>
-      <Box width="70%" />
+      <Box />
       <Button rightIcon={currentIcon} onClick={toggleColorMode}>
         Light/Dark
       </Button>
