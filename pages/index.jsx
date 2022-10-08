@@ -6,6 +6,7 @@ import {
   useColorModeValue,
   VStack,
   Link,
+  Container,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import NextLink from "next/link";
@@ -27,27 +28,26 @@ export default function Home() {
     if (myLinks) {
       return myLinks.map((link, index) => {
         return (
-          <Box
+          <Container
             key={index}
             height="8vh"
             width="60vw"
             rounded="2xl"
             background={itemBackground}
+            centerContent
           >
-            <Center>
-              <NextLink href={link.url} passHref>
-                <Link
-                  color="#f3f3f3"
-                  _hover={{
-                    color: "#ad5a6c",
-                  }}
-                  isExternal
-                >
-                  <Heading size="xl">{link.text}</Heading>
-                </Link>
-              </NextLink>
-            </Center>
-          </Box>
+            <NextLink href={link.url} passHref>
+              <Link
+                color="#f3f3f3"
+                _hover={{
+                  color: "#ad5a6c",
+                }}
+                isExternal
+              >
+                <Heading size="xl">{link.text}</Heading>
+              </Link>
+            </NextLink>
+          </Container>
         );
       });
     }
@@ -73,8 +73,8 @@ export default function Home() {
       <main>
         <Header />
         <Flex
-          height="100vh"
-          width="100vw"
+          height="100%"
+          width="100%"
           alignItems="center"
           justifyContent="center"
           background={myBackground}
