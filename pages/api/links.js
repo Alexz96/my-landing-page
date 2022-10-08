@@ -34,7 +34,7 @@ function get(req, res) {
     },
     {
       text: "Fiverr",
-      url: "https://www.fiverr.com/oliveiraalex?up_rollout=true",
+      url: "https://www.fiverr.com/share/0v4LWL",
     },
   ]);
 }

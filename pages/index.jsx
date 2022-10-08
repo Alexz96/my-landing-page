@@ -18,7 +18,7 @@ export default function Home() {
   const [myLinks, setMyLinks] = useState([]);
 
   useEffect(() => {
-    fetch("https://my-landing-page-seven.vercel.app/api/links")
+    fetch("api/links")
       .then((resp) => resp.json())
       .then(setMyLinks);
   }, []);
@@ -59,8 +59,15 @@ export default function Home() {
     <div>
       <Head>
         <title>Alex Landing Page</title>
+        <meta property="og:title" content="Alexsander Landing Page" />
         <meta name="description" content="One page with all my social links" />
+        <meta name="google" content="notranslate" key="notranslate" />
         <link rel="icon" href="/favicon.ico" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5834550119410045"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
 
       <main>
