@@ -63,11 +63,6 @@ export default function Home() {
         <meta name="description" content="One page with all my social links" />
         <meta name="google" content="notranslate" key="notranslate" />
         <link rel="icon" href="/favicon.ico" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5834550119410045"
-          crossOrigin="anonymous"
-        ></script>
       </Head>
 
       <main>
